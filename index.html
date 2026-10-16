@@ -73,6 +73,37 @@
   </div>
 </section>
 
+<section ref="{{ plateSecRef }}" style="position:relative;padding:clamp(80px,10vw,150px) clamp(16px,4vw,40px) 80px;overflow-x:clip">
+  <div style="position:relative;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px">
+    <div style="position:relative;width:min(1000px,92vw);aspect-ratio:1/1">
+      <svg ref="{{ ringTextRef }}" viewBox="0 0 1000 1000" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;will-change:transform"><defs><path id="dbRing" d="M500,500 m-470,0 a470,470 0 1,1 940,0 a470,470 0 1,1 -940,0"></path></defs><text style="font-family:'Titan One',sans-serif;font-size:58px;letter-spacing:4px;fill:#004F59;text-transform:uppercase"><textPath href="#dbRing" textLength="2950" lengthAdjust="spacing">CIAO! • PIZZA &amp; DOUGHBALLS • CIAO! • PIZZA &amp; DOUGHBALLS •</textPath></text></svg>
+      <div style="position:absolute;inset:8%;border-radius:50%;background:#C6AA76"></div>
+      <div style="position:absolute;inset:13%;border-radius:50%;background:repeating-conic-gradient(#004F59 0 4deg,transparent 4deg 8deg);-webkit-mask:radial-gradient(circle,transparent 63.5%,#000 64%,#000 68%,transparent 68.5%);mask:radial-gradient(circle,transparent 63.5%,#000 64%,#000 68%,transparent 68.5%)"></div>
+      <div style="position:absolute;inset:13%;border-radius:50%;background:repeating-conic-gradient(transparent 0 4deg,#004F59 4deg 8deg);-webkit-mask:radial-gradient(circle,transparent 67.5%,#000 68%,#000 72%,transparent 72.5%);mask:radial-gradient(circle,transparent 67.5%,#000 68%,#000 72%,transparent 72.5%)"></div>
+      <div ref="{{ plateRef }}" style="position:absolute;inset:24%;border-radius:50%;overflow:hidden;background:#f4ede0;box-shadow:0 30px 60px rgba(0,40,46,.3);will-change:transform">
+        <img loading="lazy" decoding="async" src="/assets/img/Carousel-Pic-7.webp" alt="DoughBalls pizzas" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:polygon(0 0,100% 0,100% 30%,0 85%)">
+        <img loading="lazy" decoding="async" src="/assets/img/Carousel-Pic-1.webp" alt="DoughBalls platter" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:polygon(0 85%,100% 30%,100% 100%,0 100%)">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><line x1="0" y1="85" x2="100" y2="30" stroke="#f4ede0" stroke-width=".9" stroke-dasharray="3 2"></line></svg>
+      </div>
+    </div>
+    <sc-for list="{{ plateCards }}" as="c" hint-placeholder-count="2">
+      <div data-plate-card="1" data-reveal="1" style="position:{{ c.pos }};left:{{ c.left }};right:{{ c.right }};top:{{ c.top }};bottom:{{ c.bottom }};width:min(400px,90vw);z-index:2">
+        <div style="transform:rotate({{ c.rot }});filter:drop-shadow(0 22px 34px rgba(0,40,46,.25));transition:transform .6s cubic-bezier(.2,.8,.2,1)" style-hover="transform:rotate(0deg) translateY(-8px)">
+          <div style="background:#fff;padding:40px 32px 32px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;-webkit-mask:radial-gradient(circle at 0 0,transparent 18px,#000 19px) top left/51% 51% no-repeat,radial-gradient(circle at 100% 0,transparent 18px,#000 19px) top right/51% 51% no-repeat,radial-gradient(circle at 0 100%,transparent 18px,#000 19px) bottom left/51% 51% no-repeat,radial-gradient(circle at 100% 100%,transparent 18px,#000 19px) bottom right/51% 51% no-repeat;mask:radial-gradient(circle at 0 0,transparent 18px,#000 19px) top left/51% 51% no-repeat,radial-gradient(circle at 100% 0,transparent 18px,#000 19px) top right/51% 51% no-repeat,radial-gradient(circle at 0 100%,transparent 18px,#000 19px) bottom left/51% 51% no-repeat,radial-gradient(circle at 100% 100%,transparent 18px,#000 19px) bottom right/51% 51% no-repeat">
+            <span style="font-family:Yellowtail,cursive;font-size:30px;color:#C6AA76;line-height:1">{{ c.kicker }}</span>
+            <h3 style="margin:0;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,4.5vw,64px);line-height:.9;color:#004F59;text-transform:uppercase">{{ c.title }}</h3>
+            <p style="margin:0;font-size:17px;line-height:1.6;color:#30494c;text-wrap:pretty">{{ c.body }}</p>
+            <div style="display:flex;flex-direction:column;gap:10px;align-self:stretch;padding-top:4px">
+              <a href="https://www.meandu.app/doughballs-g/dine-in" target="_blank" style="display:flex;justify-content:center;padding:16px 20px;border-radius:999px;background:#004F59;color:#fff;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;transition:transform .25s" style-hover="color:#fff;transform:scale(1.03)">View the menu</a>
+              <a href="/menus" style="display:flex;justify-content:center;padding:16px 20px;border-radius:999px;background:#C6AA76;color:#0b2a2e;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;transition:transform .25s" style-hover="color:#0b2a2e;transform:scale(1.03)">{{ c.more }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
 <section ref="{{ locRef }}" style="max-width:1360px;margin:0 auto;padding:clamp(88px,11vw,170px) clamp(16px,4vw,40px) 0">
   <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:40px">
     <h2 data-reveal="1" style="margin:0;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,5.5vw,84px);line-height:.95;color:#004F59;text-transform:uppercase">Find your<br><span style="display:inline-block;padding-left:min(8vw,120px)">pizza place</span></h2>
@@ -209,10 +240,25 @@ const TIMES = ['12:00', '12:30', '17:30', '18:00', '18:30', '19:00', '19:30'];
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 class Component extends DCLogic {
-  state = { slide: 0, fan: false, loc: 0, occ: 0, rev: 0, menu: false, step: 0, bLoc: 0, ym: [new Date().getFullYear(), new Date().getMonth()], day: null, time: null, guests: 4 };
+  state = { slide: 0, fan: false, loc: 0, occ: 0, rev: 0, menu: false, step: 0, bLoc: 0, ym: [new Date().getFullYear(), new Date().getMonth()], day: null, time: null, guests: 4, name: '', email: '', phone: '' };
+  ringTextRef = React.createRef(); plateRef = React.createRef(); plateSecRef = React.createRef();
   heroRef = React.createRef(); headerRef = React.createRef(); heroWrapRef = React.createRef(); pizzaRef = React.createRef(); locRef = React.createRef(); bookRef = React.createRef();
   componentDidMount() {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pr = 0;
+    const ringSpin = () => {
+      const el = this.ringTextRef.current; if (el) el.style.transform = `rotate(${(window.scrollY * .08).toFixed(2)}deg)`;
+      const sec = this.plateSecRef.current;
+      if (sec) {
+        const r = sec.getBoundingClientRect(), p = (window.innerHeight / 2 - (r.top + r.height / 2)) / window.innerHeight;
+        pr += (p - pr) * .1;
+        const pl = this.plateRef.current; if (pl) pl.style.transform = `rotate(${(pr * 25).toFixed(2)}deg) scale(${(1 + Math.max(-.3, Math.min(.3, pr)) * -.08).toFixed(3)})`;
+        if ((window.innerWidth || 1200) >= 900) sec.querySelectorAll('[data-plate-card]').forEach((c, k) => { c.style.translate = `0 ${(pr * (k ? -140 : 110)).toFixed(1)}px`; });
+        else sec.querySelectorAll('[data-plate-card]').forEach(c => { c.style.translate = '0 0'; });
+      }
+      this.ringRaf = requestAnimationFrame(ringSpin);
+    };
+    if (!reduce) this.ringRaf = requestAnimationFrame(ringSpin);
     if (!reduce) this.timer = setInterval(() => this.setState(s => ({ slide: (s.slide + 1) % HERO.length })), 5000);
     this.onScroll = () => {
       const el = this.heroRef.current; if (!el) return;
@@ -235,10 +281,15 @@ class Component extends DCLogic {
     });
     window.addEventListener('scroll', this.reveal, { passive: true });
   }
-  componentWillUnmount() { clearInterval(this.timer); window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.reveal); document.querySelectorAll('[data-reveal]').forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; }); }
+  componentWillUnmount() { cancelAnimationFrame(this.ringRaf); clearInterval(this.timer); window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.reveal); document.querySelectorAll('[data-reveal]').forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; }); }
   to(ref) { const el = ref && ref.current; window.scrollTo({ top: el ? el.getBoundingClientRect().top + window.scrollY - 40 : 0, behavior: 'smooth' }); }
   renderVals() {
     const s = this.state, set = o => this.setState(o);
+    const wide = (window.innerWidth || 1200) >= 900;
+    const plateCards = [
+      { kicker: 'Roman-style', title: 'Pizza', body: 'Hand-stretched and woodfired, with unique flavour combinations that let the toppings sing.', more: 'More about pizza', rot: '-4deg', left: '0', right: 'auto', top: '14%', bottom: 'auto' },
+      { kicker: 'Our signature', title: 'DoughBalls', body: 'Twice-proven pizza dough cooked until light and fluffy, with savoury or sweet toppings.', more: 'More about DoughBalls', rot: '3deg', left: 'auto', right: '0', top: 'auto', bottom: '4%' },
+    ].map(c => wide ? { ...c, pos: 'absolute' } : { ...c, pos: 'relative', left: 'auto', right: 'auto', top: 'auto', bottom: 'auto' });
     const navDef = [['Our story', '/our-story'], ['Menus', '/menus'], ['Catering', '/catering'], ["What's on", '/whats-on'], ['Locations', '/locations']];
     const nav = navDef.map(([label, href]) => ({ label, go: () => { window.location.href = href; }, goClose: () => { window.location.href = href; } }));
     const fanPos = s.fan ? ['translate(-150px,30px) rotate(-12deg)', 'translate(0,-30px) rotate(2deg)', 'translate(150px,40px) rotate(12deg)'] : ['translate(-40px,10px) rotate(-7deg)', 'translate(0,0) rotate(1deg)', 'translate(40px,14px) rotate(8deg)'];
@@ -254,6 +305,7 @@ class Component extends DCLogic {
     const canNext = !!(s.day && s.time);
     const L = LOCS[s.loc], O = OCC[s.occ];
     return {
+      plateCards, ringTextRef: this.ringTextRef, plateRef: this.plateRef, plateSecRef: this.plateSecRef,
       headerRef: this.headerRef, heroWrapRef: this.heroWrapRef,
       navDisplay: window.innerWidth < 1100 ? 'hidden' : 'visible',
       nav, goTop: () => this.to(null), goBook: () => this.to(this.bookRef),

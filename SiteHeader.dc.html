@@ -12,7 +12,7 @@
     <button type="button" onClick="{{ openMenu }}" aria-label="Open menu" aria-expanded="{{ menuOpen }}" style="width:52px;height:52px;flex:0 0 auto;border-radius:50%;background:#004F59;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;cursor:pointer;box-shadow:{{ ring }};transition:transform .25s" style-hover="transform:scale(1.08)"><span style="width:20px;height:2.5px;border-radius:2px;background:#C6AA76"></span><span style="width:20px;height:2.5px;border-radius:2px;background:#C6AA76"></span></button>
     <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}"><sc-for list="{{ navL }}" as="n" hint-placeholder-count="2"><a href="{{ n.href }}" style="padding:10px 16px;border-radius:999px;background:{{ n.bg }};color:{{ n.fg }};font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:background .25s,color .25s" style-hover="background:#004F59;color:#fff">{{ n.label }}</a></sc-for></sc-if>
   </div>
-  <a href="/" style="display:block;line-height:0"><img src="/assets/logo-primary.png" alt="DoughBalls Pizza, The Pizza Place" style="width:{{ logoW }};height:{{ logoW }};display:block;filter:drop-shadow(0 6px 14px rgba(0,40,46,.28));transition:transform .4s,width .4s,height .4s" style-hover="transform:rotate(-12deg)"></a>
+  <a href="/" aria-label="DoughBalls Pizza, The Pizza Place" onMouseEnter="{{ logoHover }}" style="display:flex;flex-direction:column;align-items:center;line-height:0;filter:{{ logoShadow }};transition:transform .5s cubic-bezier(.2,.7,.2,1)" style-hover="transform:translateY(-3px)"><img ref="{{ dRef }}" src="{{ dSrc }}" alt="" style="height:{{ dH }};width:auto;display:block;transform-origin:50% 100%;transition:height .45s cubic-bezier(.2,.8,.2,1)"><span ref="{{ wmRef }}" style="display:block;overflow:hidden;max-height:{{ wmMax }};opacity:{{ wmOp }};margin-top:{{ wmGap }};transition:max-height .45s cubic-bezier(.2,.8,.2,1),opacity .3s,margin-top .45s"><img src="{{ wmSrc }}" alt="" style="width:{{ wmW }};height:auto;display:block"></span></a>
   <div style="display:flex;gap:6px;align-items:center;justify-content:flex-end;min-width:0">
     <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}"><sc-for list="{{ navR }}" as="n" hint-placeholder-count="2"><a href="{{ n.href }}" style="padding:10px 16px;border-radius:999px;background:{{ n.bg }};color:{{ n.fg }};font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:background .25s,color .25s" style-hover="background:#004F59;color:#fff">{{ n.label }}</a></sc-for></sc-if>
     <a href="https://bookings.nowbookit.com/?accountid=5b90d805-2385-4034-910a-15808e7dfa1d&amp;theme=light&amp;colors=hex,004d40" target="_blank" style="display:flex;align-items:center;gap:12px;flex:0 0 auto;padding:8px 8px 8px 22px;border-radius:999px;background:#C6AA76;color:#0b2a2e;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:0 10px 24px rgba(0,40,46,.28);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px) scale(1.03);box-shadow:0 14px 30px rgba(0,40,46,.35);color:#0b2a2e">{{ bookLabel }}<span style="width:36px;height:36px;border-radius:50%;background:#004F59;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px">→</span></a>
@@ -46,7 +46,16 @@ const HOVER = 'a,button,label,[style*="cursor: pointer"]';
 class Component extends DCLogic {
   state = { past: false, menu: false, w: window.innerWidth, fine: false };
   curRef = React.createRef(); ballRef = React.createRef(); pzWrapRef = React.createRef(); pzRef = React.createRef();
+  dRef = React.createRef(); wmRef = React.createRef();
+  logoHover = () => {};
+  introLogo() {
+    const d = this.dRef.current, wm = this.wmRef.current; if (!d || !d.animate) return;
+    const ease = 'cubic-bezier(.2,.7,.2,1)';
+    d.animate([{ transform: 'translateY(16px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }], { duration: 1000, easing: ease, fill: 'backwards', delay: 150 });
+    if (wm && wm.firstChild) wm.firstChild.animate([{ transform: 'translateY(12px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }], { duration: 1000, easing: ease, fill: 'backwards', delay: 350 });
+  }
   componentDidMount() {
+    this.introLogo();
     this.onScroll = () => { const past = window.scrollY > (this.props.threshold ?? window.innerHeight * 0.6); if (past !== this.state.past) this.setState({ past }); };
     this.onResize = () => this.setState({ w: window.innerWidth });
     window.addEventListener('scroll', this.onScroll, { passive: true }); window.addEventListener('resize', this.onResize); this.onScroll(); this.onResize(); requestAnimationFrame(this.onResize);
@@ -94,11 +103,17 @@ class Component extends DCLogic {
     const { past, menu, fine } = this.state, page = this.props.page, w = window.innerWidth || this.state.w || 1200;
     const pill = ([label, href]) => { const a = label === page; return { label, href, bg: a ? '#C6AA76' : past ? 'transparent' : '#fff', fg: a ? '#0b2a2e' : past ? '#fff' : '#004F59' }; };
     return {
-      pad: past ? '10px clamp(16px,4vw,40px)' : '18px clamp(16px,4vw,40px)',
+      pad: past ? '10px clamp(16px,4vw,40px)' : '12px clamp(16px,4vw,40px)',
       bg: past ? 'rgba(0,79,89,.96)' : 'transparent',
       shadow: past ? '0 10px 30px rgba(0,40,46,.2)' : 'none',
       ring: past ? '0 0 0 1.5px rgba(198,170,118,.7)' : '0 8px 20px rgba(0,40,46,.25)',
-      logoW: past ? '60px' : '84px',
+      dH: past ? '48px' : (w < 560 ? '50px' : '58px'),
+      wmW: w < 560 ? '104px' : '120px',
+      dSrc: past ? '/assets/logo-d.png' : '/assets/logo-d-teal.png',
+      wmSrc: past ? '/assets/logo-wordmark.png' : '/assets/logo-wordmark-teal.png',
+      logoShadow: past ? 'drop-shadow(0 4px 12px rgba(0,30,35,.45))' : 'none',
+      wmMax: past ? '0px' : '60px', wmOp: past ? 0 : 1, wmGap: past ? '0px' : '6px',
+      dRef: this.dRef, wmRef: this.wmRef, logoHover: this.logoHover,
       showLinks: w >= 1180,
       bookLabel: w < 560 ? 'Book' : 'Book a table',
       navL: L.map(pill), navR: R.map(pill),
