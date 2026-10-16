@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What&#39;s on · DoughBalls Pizza</title>
+<meta name="description" content="Specials, events and seasonal packages at DoughBalls Pizza restaurants in Adelaide.">
+<meta name="theme-color" content="#004F59">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoughBalls Pizza">
+<meta property="og:title" content="What's on · DoughBalls Pizza">
+<meta property="og:description" content="Specials, events and seasonal packages at DoughBalls Pizza restaurants in Adelaide.">
+<meta property="og:image" content="/assets/img/Hero-Pic-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/support.js"></script>
+</head>
+<body>
+<noscript><p style="font:18px/1.5 system-ui,sans-serif;padding:24px;max-width:640px;margin:0 auto">Please turn on JavaScript to view the DoughBalls Pizza website. To book or enquire, call Glenelg on <a href="tel:0883769932">(08) 8376 9932</a>.</p></noscript>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Titan+One&family=Yellowtail&display=swap" rel="stylesheet">
+<title>What&#39;s on · DoughBalls Pizza</title>
+<style>body{margin:0;background:#f4ede0;font-family:Barlow,system-ui,sans-serif;color:#0b2a2e;-webkit-font-smoothing:antialiased}a{color:#004F59;text-decoration:none}a:hover{color:#C6AA76}*{box-sizing:border-box}html,body{overflow-x:clip}button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;text-align:inherit;cursor:pointer}:focus-visible{outline:3px solid #C6AA76;outline-offset:3px}@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;scroll-behavior:auto!important}}</style>
+</helmet>
+<dc-import name="SiteHeader" page="What's on" hint-size="100%,0px"></dc-import>
+
+<dc-import name="PageHero" img="/assets/img/Carousel-Pic-3.webp" alt="DoughBalls cocktails" caption="Specials &amp; events" t1="What's" t2="on" hint-size="100%,100vh"></dc-import>
+<div style="position:relative;z-index:2">
+<section style="pointer-events:none">
+  <svg viewBox="0 0 1440 360" preserveAspectRatio="none" style="display:block;width:100%;height:clamp(140px,22vw,320px);margin-bottom:-1px"><path d="M0 360 V300 C0 262 46 240 140 238 H170 C182 160 246 118 370 116 H520 C590 114 616 30 720 28 C824 30 850 114 920 116 H1070 C1194 118 1258 160 1270 238 H1300 C1394 240 1440 262 1440 300 V360 Z" fill="#C6AA76"></path></svg>
+  <div style="background:#C6AA76;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px;padding:0 24px 150px;pointer-events:auto">
+    <span data-reveal="1" style="margin-top:clamp(-130px,-6.5vw,-36px);padding:8px 18px;border-radius:10px;background:#f4ede0;color:#004F59;font-family:Yellowtail,cursive;font-size:30px;line-height:1;transform:rotate(-3deg)">What's on at DoughBalls</span><h2 data-reveal="1" style="margin:0;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,7vw,112px);line-height:.95;color:#004F59;text-transform:uppercase;text-shadow:4px 4px 0 #f4ede0">Looking for<br>somewhere great<br>to eat?</h2><p data-reveal="1" style="margin:0;font-size:clamp(18px,1.6vw,22px);line-height:1.65;color:#0b2a2e;max-width:780px;text-wrap:pretty">Welcome to DoughBalls Pizza Restaurant’s “What’s On” page – your go-to spot for all the latest happenings, specials, and events! From live music nights and seasonal pizza deals to family-friendly events and holiday celebrations, there’s always something exciting cooking up here at DoughBalls. Check back often to stay in the loop on upcoming events, exclusive offers, and tasty surprises that’ll make your next visit to DoughBalls even more unforgettable. We can’t wait to welcome you for great food, good vibes, and a slice of the action!</p>
+  </div>
+</section>
+<div style="position:relative;z-index:2;background:#f4ede0;border-radius:48px 48px 0 0;margin-top:-48px;box-shadow:0 -22px 44px rgba(0,40,46,.32)">
+<section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,104px) clamp(16px,4vw,40px) 0">
+  <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:28px"><sc-for list="{{ filters }}" as="f" hint-placeholder-count="3"><button type="button" onClick="{{ f.pick }}" style="padding:10px 18px;border-radius:999px;border:2px solid #004F59;background:{{ f.bg }};color:{{ f.fg }};font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s">{{ f.label }}</button></sc-for></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px">
+    <sc-for list="{{ events }}" as="e" hint-placeholder-count="3">
+      <div style="background:{{ e.bg }};color:{{ e.fg }};border-radius:32px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s" style-hover="transform:translateY(-6px)">
+        <div style="position:relative;aspect-ratio:4/3;overflow:hidden"><img loading="lazy" decoding="async" src="{{ e.img }}" alt="{{ e.title }}" style="width:100%;height:100%;object-fit:cover;display:block"><span style="position:absolute;left:18px;top:18px;padding:8px 14px;border-radius:999px;background:#f4ede0;color:#004F59;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase">{{ e.where }}</span></div>
+        <div style="padding:28px 30px 32px;display:flex;flex-direction:column;gap:14px;flex:1">
+          <span style="font-family:Yellowtail,cursive;font-size:30px;line-height:1;color:{{ e.accent }}">{{ e.kicker }}</span>
+          <span style="font-family:'Titan One',sans-serif;font-size:clamp(28px,2.6vw,38px);line-height:1;text-transform:uppercase">{{ e.title }}</span>
+          <p style="margin:0;font-size:17px;line-height:1.6;opacity:.9">{{ e.body }}</p>
+          <a href="{{ e.href }}" target="_blank" style="margin-top:auto;align-self:flex-start;padding:13px 22px;border-radius:999px;background:{{ e.btnBg }};color:{{ e.btnFg }};font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase">{{ e.cta }}</a>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:clamp(88px,11vw,170px) clamp(16px,4vw,40px) 0">
+  <h2 data-reveal="1" style="margin:0 0 40px;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,5.5vw,84px);line-height:.95;color:#004F59;text-transform:uppercase">Some of our<br><span style="display:inline-block;padding-left:min(8vw,120px)">delicious meals</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(140px,18vw,260px);gap:16px">
+    <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="7"><div style="border-radius:24px;overflow:hidden;grid-column:span {{ g.cs }};grid-row:span {{ g.rs }};background:#004F59"><img loading="lazy" decoding="async" src="{{ g.src }}" alt="DoughBalls meal" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s" style-hover="transform:scale(1.06)"></div></sc-for>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,1400px"></dc-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const IMG = '/assets/img/';
+const BOOK = 'https://bookings.nowbookit.com/?accountid=5b90d805-2385-4034-910a-15808e7dfa1d&theme=light&colors=hex,004d40';
+const EV = [
+  { where: 'All restaurants', loc: 'All', kicker: 'Seasonal', title: "What's on for Christmas?", body: 'Click to view or download our brochure for more details.', img: IMG + 'Christmas-Packages-2024-Pic-3.webp', cta: 'View brochure', href: 'https://doughballspizza.com.au/wp-content/uploads/2024/11/Christmas-Packages-2024.pdf', pal: 0 },
+  { where: 'Rundle Place', loc: 'Rundle Place', kicker: 'Weekends', title: 'Bottomless Brunch', body: 'Our much-loved Bottomless Brunch, plus Bottomless Pizza and Drinks Packages at Rundle Place.', img: IMG + 'Carousel-Pic-2.webp', cta: 'Book a table', href: BOOK, pal: 1 },
+  { where: 'Rundle Place', loc: 'Rundle Place', kicker: 'For the kids', title: 'Family Fun Days', body: 'Face painting, balloon artists and our 3-course kids menu.', img: IMG + 'Carousel-Pic-6.webp', cta: 'Book a table', href: BOOK, pal: 2 },
+];
+const PAL = [['#004F59', '#fff', '#C6AA76', '#C6AA76', '#0b2a2e'], ['#fff', '#004F59', '#C6AA76', '#004F59', '#fff'], ['#C6AA76', '#0b2a2e', '#f4ede0', '#004F59', '#fff']];
+const GAL = [[7, 2, 2], [1, 1, 1], [5, 1, 1], [4, 1, 2], [3, 1, 1], [9, 2, 1], [8, 1, 1]];
+class Component extends DCLogic {
+  state = { f: 'All' };
+  renderVals() {
+    const f = this.state.f;
+    return {
+      filters: ['All', 'Glenelg', 'Rundle Place'].map(label => ({ label, bg: f === label ? '#004F59' : 'transparent', fg: f === label ? '#fff' : '#004F59', pick: () => this.setState({ f: label }) })),
+      events: EV.filter(e => f === 'All' || e.loc === 'All' || e.loc === f).map(e => { const p = PAL[e.pal]; return { ...e, bg: p[0], fg: p[1], accent: p[2], btnBg: p[3], btnFg: p[4] }; }),
+      gallery: GAL.map(([n, cs, rs]) => ({ src: IMG + 'Carousel-Pic-' + n + '.webp', cs, rs })),
+    };
+  }
+}
+</script>
+</body>
+</html>

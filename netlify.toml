@@ -1,0 +1,37 @@
+# Static site: no build step, publish the repo root.
+[build]
+  publish = "."
+
+# Clean URLs (/catering serves catering.html)
+[[redirects]]
+  from = "/catering"
+  to = "/catering.html"
+  status = 200
+[[redirects]]
+  from = "/locations"
+  to = "/locations.html"
+  status = 200
+[[redirects]]
+  from = "/menus"
+  to = "/menus.html"
+  status = 200
+[[redirects]]
+  from = "/our-story"
+  to = "/our-story.html"
+  status = 200
+[[redirects]]
+  from = "/whats-on"
+  to = "/whats-on.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

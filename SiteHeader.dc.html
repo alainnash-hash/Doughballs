@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;padding:{{ pad }};background:{{ bg }};box-shadow:{{ shadow }};transition:background .4s,padding .4s,box-shadow .4s;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px">
+  <div style="display:flex;gap:6px;align-items:center;justify-content:flex-start;min-width:0">
+    <button type="button" onClick="{{ openMenu }}" aria-label="Open menu" aria-expanded="{{ menuOpen }}" style="width:52px;height:52px;flex:0 0 auto;border-radius:50%;background:#004F59;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;cursor:pointer;box-shadow:{{ ring }};transition:transform .25s" style-hover="transform:scale(1.08)"><span style="width:20px;height:2.5px;border-radius:2px;background:#C6AA76"></span><span style="width:20px;height:2.5px;border-radius:2px;background:#C6AA76"></span></button>
+    <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}"><sc-for list="{{ navL }}" as="n" hint-placeholder-count="2"><a href="{{ n.href }}" style="padding:10px 16px;border-radius:999px;background:{{ n.bg }};color:{{ n.fg }};font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:background .25s,color .25s" style-hover="background:#004F59;color:#fff">{{ n.label }}</a></sc-for></sc-if>
+  </div>
+  <a href="/" style="display:block;line-height:0"><img src="/assets/logo-primary.png" alt="DoughBalls Pizza, The Pizza Place" style="width:{{ logoW }};height:{{ logoW }};display:block;filter:drop-shadow(0 6px 14px rgba(0,40,46,.28));transition:transform .4s,width .4s,height .4s" style-hover="transform:rotate(-12deg)"></a>
+  <div style="display:flex;gap:6px;align-items:center;justify-content:flex-end;min-width:0">
+    <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}"><sc-for list="{{ navR }}" as="n" hint-placeholder-count="2"><a href="{{ n.href }}" style="padding:10px 16px;border-radius:999px;background:{{ n.bg }};color:{{ n.fg }};font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:background .25s,color .25s" style-hover="background:#004F59;color:#fff">{{ n.label }}</a></sc-for></sc-if>
+    <a href="https://bookings.nowbookit.com/?accountid=5b90d805-2385-4034-910a-15808e7dfa1d&amp;theme=light&amp;colors=hex,004d40" target="_blank" style="display:flex;align-items:center;gap:12px;flex:0 0 auto;padding:8px 8px 8px 22px;border-radius:999px;background:#C6AA76;color:#0b2a2e;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:0 10px 24px rgba(0,40,46,.28);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px) scale(1.03);box-shadow:0 14px 30px rgba(0,40,46,.35);color:#0b2a2e">{{ bookLabel }}<span style="width:36px;height:36px;border-radius:50%;background:#004F59;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px">→</span></a>
+  </div>
+</header>
+
+<div style="position:fixed;inset:0;z-index:60;background:#004F59;color:#fff;clip-path:{{ menuClip }};visibility:{{ menuVis }};transition:{{ menuTrans }};display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px;padding:120px clamp(20px,5vw,56px) 56px;overflow:auto">
+  <div style="display:flex;flex-direction:column;gap:2px">
+    <sc-for list="{{ menuNav }}" as="n" hint-placeholder-count="6"><a href="{{ n.href }}" style="font-family:'Titan One',sans-serif;font-size:clamp(44px,6vw,88px);line-height:1.04;text-transform:uppercase;color:{{ n.fg }};transition:color .25s,padding .35s" style-hover="color:#C6AA76;padding-left:24px">{{ n.label }}</a></sc-for>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:32px;justify-content:flex-end">
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C6AA76">Restaurants</span><a href="tel:0883769932" style="font-size:19px;line-height:1.4;color:#fff">Glenelg · (08) 8376 9932</a><a href="tel:0883592740" style="font-size:19px;line-height:1.4;color:#fff">Rundle Place · (08) 8359 2740</a><a href="tel:0499777454" style="font-size:19px;line-height:1.4;color:#fff">Fort Largs Eatery · 0499 777 454</a></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C6AA76">Socials</span><div style="display:flex;gap:16px"><a href="https://www.instagram.com/doughballsau/" target="_blank" style="font-size:19px;color:#fff">Instagram</a><a href="https://www.facebook.com/DoughballsAU/" target="_blank" style="font-size:19px;color:#fff">Facebook</a></div></div>
+    <a href="https://bookings.nowbookit.com/?accountid=5b90d805-2385-4034-910a-15808e7dfa1d&amp;theme=light&amp;colors=hex,004d40" target="_blank" style="align-self:flex-start;display:flex;align-items:center;gap:14px;padding:10px 10px 10px 28px;border-radius:999px;background:#C6AA76;color:#0b2a2e;font-weight:800;font-size:16px;letter-spacing:.1em;text-transform:uppercase">Book a table<span style="width:44px;height:44px;border-radius:50%;background:#004F59;color:#fff;display:flex;align-items:center;justify-content:center">→</span></a>
+  </div>
+  <button type="button" onClick="{{ closeMenu }}" aria-label="Close menu" style="position:absolute;top:18px;left:clamp(16px,4vw,40px);width:52px;height:52px;border-radius:50%;background:#C6AA76;color:#0b2a2e;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;cursor:pointer">✕</button>
+</div>
+
+<div ref="{{ curRef }}" style="position:fixed;left:0;top:0;z-index:9999;pointer-events:none;width:0;height:0;display:{{ curDisplay }}">
+  <div ref="{{ ballRef }}" style="position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:#004F59;box-shadow:0 0 0 2px #f4ede0;transition:opacity .2s"></div>
+  <div ref="{{ pzWrapRef }}" style="position:absolute;left:-20px;top:-20px;width:40px;height:40px;border-radius:50%;border:2px solid #C6AA76;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .25s,border-color .25s"><div ref="{{ pzRef }}" style="width:100%;height:100%;border-radius:50%;background:#C6AA76;opacity:0;transition:opacity .25s"></div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;page&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;Our story&quot;,&quot;Menus&quot;,&quot;Catering&quot;,&quot;What's on&quot;,&quot;Locations&quot;],&quot;default&quot;:&quot;Home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;threshold&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;number&quot;}}">
+const H = { home: '/', story: '/our-story', menus: '/menus', cat: '/catering', on: '/whats-on', loc: '/locations' };
+const L = [['Our story', H.story], ['Menus', H.menus]];
+const R = [['Catering', H.cat], ['Locations', H.loc]];
+const MENU = [['Home', H.home], ['Our story', H.story], ['Menus', H.menus], ['Catering', H.cat], ["What's on", H.on], ['Locations', H.loc]];
+const HOVER = 'a,button,label,[style*="cursor: pointer"]';
+
+class Component extends DCLogic {
+  state = { past: false, menu: false, w: window.innerWidth, fine: false };
+  curRef = React.createRef(); ballRef = React.createRef(); pzWrapRef = React.createRef(); pzRef = React.createRef();
+  componentDidMount() {
+    this.onScroll = () => { const past = window.scrollY > (this.props.threshold ?? window.innerHeight * 0.6); if (past !== this.state.past) this.setState({ past }); };
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('scroll', this.onScroll, { passive: true }); window.addEventListener('resize', this.onResize); this.onScroll(); this.onResize(); requestAnimationFrame(this.onResize);
+    this.reveal = () => document.querySelectorAll('[data-reveal="hidden"]').forEach(e => { if (e.getBoundingClientRect().top < window.innerHeight * .9) { e.style.opacity = 1; e.style.transform = 'none'; e.setAttribute('data-reveal', 'shown'); } });
+    this.t = setTimeout(() => {
+      document.querySelectorAll('[data-reveal="1"]').forEach(e => {
+        e.style.transition = 'opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1)';
+        if (e.getBoundingClientRect().top > window.innerHeight) { e.style.opacity = 0; e.style.transform = 'translateY(40px)'; e.setAttribute('data-reveal', 'hidden'); }
+        else e.setAttribute('data-reveal', 'shown');
+      });
+    }, 150);
+    window.addEventListener('scroll', this.reveal, { passive: true });
+    this.onKey = e => { if (e.key === 'Escape' && this.state.menu) this.setState({ menu: false }); };
+    window.addEventListener('keydown', this.onKey);
+    if (window.matchMedia && window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) this.initCursor();
+  }
+  initCursor() {
+    this.setState({ fine: true });
+    this.css = document.createElement('style');
+    this.css.textContent = '*{cursor:none!important}input,textarea,select{cursor:text!important}';
+    document.head.appendChild(this.css);
+    let tx = -100, ty = -100, x = -100, y = -100, roll = 0, spin = 0, hov = false, down = false;
+    this.mm = e => { tx = e.clientX; ty = e.clientY; const h = !!(e.target.closest && e.target.closest(HOVER)) && !e.target.closest('input,textarea,select'); if (h !== hov) { hov = h; const p = this.pzRef.current, b = this.ballRef.current; if (p) p.style.opacity = h ? .35 : 0; if (b) b.style.opacity = h ? 0 : 1; } };
+    this.md = () => { down = true; }; this.mu = () => { down = false; };
+    this.ml = () => { tx = ty = x = y = -100; };
+    window.addEventListener('mousemove', this.mm, { passive: true }); window.addEventListener('mousedown', this.md); window.addEventListener('mouseup', this.mu); document.addEventListener('mouseleave', this.ml);
+    let rx = -100, ry = -100;
+    const tick = () => {
+      x = tx; y = ty; rx += (tx - rx) * .18; ry += (ty - ry) * .18; spin += hov ? 1.2 : 0;
+      const c = this.curRef.current, b = this.ballRef.current, w = this.pzWrapRef.current, p = this.pzRef.current;
+      if (c) c.style.transform = `translate(${x}px,${y}px)`;
+      if (b) b.style.transform = `scale(${down ? .6 : 1})`;
+      if (w) w.style.transform = `translate(${rx - x}px,${ry - y}px) scale(${hov ? (down ? 1.2 : 1.45) : (down ? .8 : 1)})`;
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() {
+    clearTimeout(this.t); cancelAnimationFrame(this.raf);
+    window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.reveal); window.removeEventListener('keydown', this.onKey);
+    if (this.mm) { window.removeEventListener('mousemove', this.mm); window.removeEventListener('mousedown', this.md); window.removeEventListener('mouseup', this.mu); document.removeEventListener('mouseleave', this.ml); }
+    if (this.css) this.css.remove();
+  }
+  renderVals() {
+    const { past, menu, fine } = this.state, page = this.props.page, w = window.innerWidth || this.state.w || 1200;
+    const pill = ([label, href]) => { const a = label === page; return { label, href, bg: a ? '#C6AA76' : past ? 'transparent' : '#fff', fg: a ? '#0b2a2e' : past ? '#fff' : '#004F59' }; };
+    return {
+      pad: past ? '10px clamp(16px,4vw,40px)' : '18px clamp(16px,4vw,40px)',
+      bg: past ? 'rgba(0,79,89,.96)' : 'transparent',
+      shadow: past ? '0 10px 30px rgba(0,40,46,.2)' : 'none',
+      ring: past ? '0 0 0 1.5px rgba(198,170,118,.7)' : '0 8px 20px rgba(0,40,46,.25)',
+      logoW: past ? '60px' : '84px',
+      showLinks: w >= 1180,
+      bookLabel: w < 560 ? 'Book' : 'Book a table',
+      navL: L.map(pill), navR: R.map(pill),
+      menuNav: MENU.map(([label, href]) => ({ label, href, fg: label === page ? '#C6AA76' : '#fff' })),
+      menuClip: menu ? 'circle(150% at 66px 44px)' : 'circle(0% at 66px 44px)',
+      menuOpen: menu ? 'true' : 'false', menuVis: menu ? 'visible' : 'hidden',
+      menuTrans: menu ? 'clip-path .8s cubic-bezier(.7,0,.2,1), visibility 0s' : 'clip-path .8s cubic-bezier(.7,0,.2,1), visibility 0s linear .8s',
+      openMenu: () => this.setState({ menu: true }), closeMenu: () => this.setState({ menu: false }),
+      curRef: this.curRef, ballRef: this.ballRef, pzWrapRef: this.pzWrapRef, pzRef: this.pzRef,
+      curDisplay: fine ? 'block' : 'none',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menus · DoughBalls Pizza</title>
+<meta name="description" content="Roman-style woodfired pizza, signature DoughBalls, Pizzata, kids meals and cocktails. Dine-in and takeaway menus.">
+<meta name="theme-color" content="#004F59">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoughBalls Pizza">
+<meta property="og:title" content="Menus · DoughBalls Pizza">
+<meta property="og:description" content="Roman-style woodfired pizza, signature DoughBalls, Pizzata, kids meals and cocktails. Dine-in and takeaway menus.">
+<meta property="og:image" content="/assets/img/Hero-Pic-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/support.js"></script>
+</head>
+<body>
+<noscript><p style="font:18px/1.5 system-ui,sans-serif;padding:24px;max-width:640px;margin:0 auto">Please turn on JavaScript to view the DoughBalls Pizza website. To book or enquire, call Glenelg on <a href="tel:0883769932">(08) 8376 9932</a>.</p></noscript>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Titan+One&family=Yellowtail&display=swap" rel="stylesheet">
+<title>Menus · DoughBalls Pizza</title>
+<style>body{margin:0;background:#f4ede0;font-family:Barlow,system-ui,sans-serif;color:#0b2a2e;-webkit-font-smoothing:antialiased}a{color:#004F59;text-decoration:none}a:hover{color:#C6AA76}*{box-sizing:border-box}html,body{overflow-x:clip}button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;text-align:inherit;cursor:pointer}:focus-visible{outline:3px solid #C6AA76;outline-offset:3px}@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;scroll-behavior:auto!important}}</style>
+</helmet>
+<dc-import name="SiteHeader" page="Menus" hint-size="100%,0px"></dc-import>
+<dc-import name="PageHero" img="/assets/img/Carousel-Pic-7.webp" alt="Two DoughBalls pizzas" caption="Dine-in &amp; takeaway" t1="Our" t2="menus" hint-size="100%,100vh"></dc-import>
+
+<div style="position:relative;z-index:2">
+<section style="pointer-events:none">
+  <svg viewBox="0 0 1440 360" preserveAspectRatio="none" style="display:block;width:100%;height:clamp(140px,22vw,320px);margin-bottom:-1px"><path d="M0 360 V300 C0 262 46 240 140 238 H170 C182 160 246 118 370 116 H520 C590 114 616 30 720 28 C824 30 850 114 920 116 H1070 C1194 118 1258 160 1270 238 H1300 C1394 240 1440 262 1440 300 V360 Z" fill="#C6AA76"></path></svg>
+  <div style="background:#C6AA76;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 0 120px;pointer-events:auto;overflow:hidden">
+    <span style="margin-top:clamp(-130px,-6.5vw,-36px);padding:8px 18px;border-radius:10px;background:#f4ede0;color:#004F59;font-family:Yellowtail,cursive;font-size:30px;line-height:1;transform:rotate(-3deg)">Spin the menu</span>
+    <div style="display:flex;align-items:center;gap:14px;padding-top:22px;font-weight:800;font-size:14px;letter-spacing:.14em;color:#004F59">{{ counter }}</div>
+    <h2 style="margin:10px 0 0;padding:0 24px;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,7vw,112px);line-height:.95;color:#004F59;text-transform:uppercase;text-shadow:4px 4px 0 #f4ede0;min-height:1.9em;display:flex;align-items:center;justify-content:center;text-wrap:balance">{{ dish.name }}</h2>
+    <div style="position:relative;width:100%;height:{{ stageH }}">
+      <sc-for list="{{ dishes }}" as="d" hint-placeholder-count="6">
+        <img loading="lazy" decoding="async" onClick="{{ d.pick }}" src="{{ d.img }}" alt="{{ d.name }}" style="position:absolute;left:50%;top:0;margin-left:-220px;width:440px;height:440px;max-width:none;border-radius:50%;object-fit:cover;display:block;cursor:pointer;border:10px solid #f4ede0;box-shadow:0 30px 60px rgba(0,40,46,.35);transform:{{ d.tf }};opacity:{{ d.op }};z-index:{{ d.z }};transition:transform 1.1s cubic-bezier(.7,0,.2,1),opacity .8s">
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:22px;padding:0 24px;position:relative;z-index:2">
+      <p style="margin:0;font-size:clamp(18px,1.6vw,22px);line-height:1.55;color:#0b2a2e;max-width:560px;min-height:3.1em">{{ dish.desc }}</p>
+      <div style="display:flex;gap:12px;align-items:center">
+        <button type="button" aria-label="Previous" onClick="{{ prev }}" style="width:60px;height:60px;border-radius:50%;border:2px solid #004F59;color:#004F59;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;cursor:pointer;transition:all .25s" style-hover="background:#004F59;color:#fff">←</button>
+        <a href="https://www.meandu.app/doughballs-g/dine-in" target="_blank" style="display:flex;align-items:center;gap:12px;padding:8px 8px 8px 26px;border-radius:999px;background:#004F59;color:#fff;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap" style-hover="color:#fff;transform:scale(1.04)">See full menu<span style="width:44px;height:44px;border-radius:50%;background:#C6AA76;color:#0b2a2e;display:flex;align-items:center;justify-content:center">→</span></a>
+        <button type="button" aria-label="Next" onClick="{{ next }}" style="width:60px;height:60px;border-radius:50%;background:#004F59;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;cursor:pointer;transition:all .25s" style-hover="background:#f4ede0;color:#004F59">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="position:relative;z-index:2;background:#f4ede0;border-radius:48px 48px 0 0;margin-top:-48px;box-shadow:0 -22px 44px rgba(0,40,46,.32)">
+<section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,104px) clamp(16px,4vw,40px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:56px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <span data-reveal="1" style="font-family:Yellowtail,cursive;font-size:44px;color:#C6AA76;line-height:1">Our signature dish</span>
+    <h2 data-reveal="1" style="margin:0;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,5.5vw,84px);line-height:.95;color:#004F59;text-transform:uppercase">What is a<br><span style="display:inline-block;padding-left:min(8vw,120px)">Doughball?</span></h2>
+    <p data-reveal="1" style="margin:0;font-size:19px;line-height:1.7;color:#30494c;max-width:500px">Our DoughBalls are our signature dishes, delicious twice-proven pizza dough cooked until light and fluffy. Topped with delicious savoury or sweet toppings!</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+    <sc-for list="{{ tiles }}" as="t" hint-placeholder-count="2">
+      <a href="https://www.meandu.app/doughballs-g/dine-in" target="_blank" onMouseEnter="{{ t.on }}" onMouseLeave="{{ t.off }}" style="position:relative;aspect-ratio:3/4;border-radius:32px;overflow:hidden;background:{{ t.bg }};color:{{ t.fg }};display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:28px 20px">
+        <span style="font-family:'Titan One',sans-serif;font-size:clamp(56px,7vw,110px);line-height:.85;text-transform:lowercase;position:relative;z-index:2">{{ t.word }}</span>
+        <img loading="lazy" decoding="async" src="{{ t.img }}" alt="{{ t.word }}" style="width:72%;aspect-ratio:1/1;border-radius:50%;object-fit:cover;border:6px solid {{ t.ring }};transform:scale({{ t.sc }}) rotate({{ t.rot }});transition:transform .7s cubic-bezier(.2,.8,.2,1)">
+        <span style="font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase">{{ t.sub }} →</span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:clamp(88px,11vw,170px) clamp(16px,4vw,40px) 0">
+  <div style="background:#004F59;color:#fff;border-radius:40px;padding:clamp(32px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:48px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:Yellowtail,cursive;font-size:40px;color:#C6AA76;line-height:1">Roman-style</span>
+      <h2 style="margin:0;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(40px,4.5vw,68px);line-height:.95;text-transform:uppercase">What sets our pizzas apart</h2>
+      <p style="margin:0;font-size:18px;line-height:1.7;color:#d6e6e8;max-width:560px">At DoughBalls, we pride ourselves on unique flavour combinations, from Chimichurri Beef, Burrata, and Prosciutto to our BBQ Pork Pizza! And did we mention we LOVE pineapple on pizza? Our pizzas are not based on the traditional Napolitana Pizzas you see everywhere but more on the Roman-style Pizza. If you haven’t tried it, ask our team about our unique Pizzata base, a wafer-thin pizza base cooked to thin and crispy perfection. This pizza is light and lets the toppings sing! Yummy!</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;justify-content:center">
+      <sc-for list="{{ flavours }}" as="f" hint-placeholder-count="5">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:clamp(14px,2vw,20px) clamp(16px,2.4vw,26px);border-radius:22px;background:{{ f.bg }};color:{{ f.fg }};transform:rotate({{ f.rot }})"><span style="font-family:'Titan One',sans-serif;font-size:clamp(18px,2.4vw,32px);line-height:1;text-transform:uppercase;min-width:0">{{ f.n }}</span><span style="font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;flex-shrink:0">{{ f.tag }}</span></div>
+      </sc-for>
+    </div>
+  </div>
+  <p style="margin:20px 0 0;font-style:italic;font-size:15px;color:#4b6265;text-align:center">Food menus are available for dine-in &amp; takeaway. The menu is subject to change at any time; prices may vary slightly between locations.</p>
+</section>
+
+<section style="padding:clamp(80px,10vw,150px) 0 0">
+  <div style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 40px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+    <h2 data-reveal="1" style="margin:0;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,5.5vw,84px);line-height:.95;color:#004F59;text-transform:uppercase">Some of our<br><span style="display:inline-block;padding-left:min(8vw,120px)">delicious meals</span></h2>
+    <div style="display:flex;gap:12px">
+      <button type="button" aria-label="Previous" onClick="{{ scrollPrev }}" style="width:56px;height:56px;border-radius:50%;border:2px solid #004F59;color:#004F59;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;cursor:pointer" style-hover="background:#004F59;color:#fff">←</button>
+      <button type="button" aria-label="Next" onClick="{{ scrollNext }}" style="width:56px;height:56px;border-radius:50%;background:#004F59;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;cursor:pointer" style-hover="background:#C6AA76;color:#0b2a2e">→</button>
+    </div>
+  </div>
+  <div ref="{{ stripRef }}" style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 clamp(16px,4vw,40px) 20px;scrollbar-width:none;scroll-behavior:smooth">
+    <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="5">
+      <button type="button" onClick="{{ g.open }}" style="flex:0 0 auto;width:min(380px,78vw);aspect-ratio:4/5;border-radius:28px;overflow:hidden;scroll-snap-align:start;cursor:pointer;background:#004F59"><img loading="lazy" decoding="async" src="{{ g.src }}" alt="{{ g.alt }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s" style-hover="transform:scale(1.06)"></button>
+    </sc-for>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,1400px"></dc-import>
+</div>
+</div>
+
+<sc-if value="{{ lightbox }}">
+  <div onClick="{{ close }}" role="dialog" aria-label="Photo" style="position:fixed;inset:0;z-index:70;background:rgba(0,40,46,.92);display:flex;align-items:center;justify-content:center;padding:40px;cursor:pointer">
+    <img loading="lazy" decoding="async" src="{{ lightSrc }}" alt="DoughBalls meal" style="max-width:100%;max-height:100%;border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.4)">
+    <button type="button" aria-label="Close photo" style="position:absolute;top:30px;right:clamp(16px,4vw,40px);width:52px;height:52px;border-radius:50%;background:#C6AA76;color:#0b2a2e;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;cursor:pointer">✕</button>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const IMG = '/assets/img/';
+const DISHES = [
+  { name: 'Rustochella', img: '/assets/pizza-round.webp', desc: 'Hand-stretched and woodfired, Roman-style. Unique flavours that let the toppings sing.' },
+  { name: 'DoughBalls', img: IMG + 'Carousel-Pic-1.webp', desc: 'Twice-proven pizza dough cooked until light and fluffy, with savoury or sweet toppings.' },
+  { name: 'Pizzata', img: IMG + 'Carousel-Pic-7.webp', desc: 'Our wafer-thin pizza base, cooked to thin and crispy perfection.' },
+  { name: 'Kids menu', img: IMG + 'Carousel-Pic-6.webp', desc: 'Three courses for the little ones: pizza, salad, dessert and a drink.' },
+  { name: 'Sweet DoughBalls', img: IMG + 'Carousel-Pic-5.webp', desc: 'Dessert DoughBalls to share, or keep all to yourself.' },
+  { name: 'Cocktails', img: IMG + 'Carousel-Pic-2.webp', desc: 'Cocktails, mocktails and a South Australian wine list.' },
+];
+const STEP = 40;
+const GAL = [[6, 'Kids meal'], [4, 'Strawberry and chocolate dessert'], [1, 'DoughBalls platter'], [3, 'Cocktails'], [7, 'Two DoughBalls pizzas'], [9, 'DoughBalls platter'], [2, 'Cocktails'], [5, 'Three desserts'], [8, 'DoughBalls pizza']];
+const FL = [['Chimichurri Beef', 'Signature'], ['Burrata', 'Signature'], ['Prosciutto', 'Signature'], ['BBQ Pork', 'Signature'], ['Pineapple', 'We love it']];
+const PAL = [['#f4ede0', '#004F59'], ['#C6AA76', '#0b2a2e']];
+class Component extends DCLogic {
+  state = { i: 0, open: null, hov: -1, w: window.innerWidth };
+  stripRef = React.createRef();
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onResize); this.onResize();
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ open: null }); }; window.addEventListener('keydown', this.onKey);
+    if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) this.timer = setInterval(() => { if (!this.paused) this.setState(s => ({ i: s.i + 1 })); }, 4500);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); clearInterval(this.timer); }
+  renderVals() {
+    const s = this.state, n = DISHES.length, idx = ((s.i % n) + n) % n;
+    const vw = window.innerWidth || document.documentElement.clientWidth || 1200;
+    const big = Math.round(Math.max(220, Math.min(440, vw * .7))), small = Math.round(big * .5), R = Math.round(Math.max(380, Math.min(700, vw * .55)));
+    const go = d => { this.paused = true; clearTimeout(this.pt); this.pt = setTimeout(() => { this.paused = false; }, 8000); this.setState(st => ({ i: st.i + d })); };
+    const sc = d => { const el = this.stripRef.current; if (el) el.scrollBy({ left: d * 400 }); };
+    return {
+      counter: String(idx + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0'),
+      dish: DISHES[idx],
+      stageH: (big + 60) + 'px', orbitTop: (R + big / 2 + 20) + 'px',
+      wheelRot: (-s.i * STEP) + 'deg',
+      dishes: DISHES.map((d, k) => {
+        const a = idx === k, sz = a ? big : small;
+        let dk = k - idx; if (dk > n / 2) dk -= n; if (dk < -n / 2) dk += n;
+        const rad = dk * STEP * Math.PI / 180, cy = big / 2 + 20;
+        const x = Math.sin(rad) * R, y = cy - 220 + R * (1 - Math.cos(rad));
+        return { ...d, tf: `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${dk * STEP}deg) scale(${(sz / 440).toFixed(3)})`, op: Math.abs(dk) <= 1 ? 1 : 0, z: a ? 3 : 1, pick: () => go(dk) };
+      }),
+      prev: () => go(-1), next: () => go(1),
+      tiles: [['eat', 'Food menu', '/assets/pizza-round.webp', '#004F59', '#fff', '#C6AA76'], ['sip', 'Drinks & cocktails', IMG + 'Carousel-Pic-3.webp', '#fff', '#004F59', '#C6AA76']].map(([word, sub, img, bg, fg, ring], k) => ({ word, sub, img, bg, fg, ring, sc: s.hov === k ? 1.08 : 1, rot: s.hov === k ? (k ? '-10deg' : '20deg') : '0deg', on: () => this.setState({ hov: k }), off: () => this.setState({ hov: -1 }) })),
+      flavours: FL.map(([nm, tag], k) => ({ n: nm, tag, bg: PAL[k % 2][0], fg: PAL[k % 2][1], rot: k % 2 ? '1deg' : '-1deg' })),
+      stripRef: this.stripRef,
+      gallery: GAL.map(([g, alt]) => ({ src: IMG + 'Carousel-Pic-' + g + '.webp', alt, open: () => this.setState({ open: IMG + 'Carousel-Pic-' + g + '.webp' }) })),
+      scrollPrev: () => sc(-1), scrollNext: () => sc(1),
+      lightbox: !!s.open, lightSrc: s.open, close: () => this.setState({ open: null }),
+    };
+  }
+}
+</script>
+</body>
+</html>

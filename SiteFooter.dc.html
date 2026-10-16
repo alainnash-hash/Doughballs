@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ showReviews }}" hint-placeholder-val="{{ true }}">
+<section style="padding:clamp(88px,11vw,170px) 0 0;overflow:hidden">
+  <div style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 48px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:Yellowtail,cursive;font-size:40px;color:#C6AA76;line-height:1">Straight from our guests</span><h2 style="margin:0;font-family:'Titan One',sans-serif;font-weight:400;font-size:clamp(44px,5.5vw,84px);line-height:.95;color:#004F59;text-transform:uppercase">Loved by<br><span style="display:inline-block;padding-left:min(8vw,120px)">Adelaide</span></h2></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:2px;padding:14px 22px;border-radius:22px;background:#004F59;color:#fff"><span style="font-family:'Titan One',sans-serif;font-size:34px;line-height:1">4.6 <span style="color:#C6AA76;font-size:22px">★</span></span><span style="font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C6AA76">Google · Glenelg</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px;padding:14px 22px;border-radius:22px;background:#004F59;color:#fff"><span style="font-family:'Titan One',sans-serif;font-size:34px;line-height:1">4.4 <span style="color:#C6AA76;font-size:22px">★</span></span><span style="font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C6AA76">Google · Rundle Place</span></div>
+    </div>
+  </div>
+  <div onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="display:flex;flex-direction:column;gap:20px">
+    <div ref="{{ rowA }}" style="display:flex;gap:20px;width:max-content;will-change:transform">
+      <sc-for list="{{ rowAItems }}" as="r" hint-placeholder-count="5">
+        <div style="width:min(420px,80vw);flex:0 0 auto;background:{{ r.bg }};color:{{ r.fg }};border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:18px;transform:rotate({{ r.rot }})">
+          <div style="color:#C6AA76;font-size:18px;letter-spacing:4px">★★★★★</div>
+          <p style="margin:0;font-family:'Titan One',sans-serif;font-size:24px;line-height:1.2;text-wrap:pretty">“{{ r.q }}”</p>
+          <div style="margin-top:auto;display:flex;justify-content:space-between;gap:12px;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase"><span>{{ r.who }}</span><span style="color:{{ r.srcC }}">{{ r.src }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+    <div ref="{{ rowB }}" style="display:flex;gap:20px;width:max-content;will-change:transform">
+      <sc-for list="{{ rowBItems }}" as="r" hint-placeholder-count="5">
+        <div style="width:min(420px,80vw);flex:0 0 auto;background:{{ r.bg }};color:{{ r.fg }};border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:18px;transform:rotate({{ r.rot }})">
+          <div style="color:#C6AA76;font-size:18px;letter-spacing:4px">★★★★★</div>
+          <p style="margin:0;font-family:'Titan One',sans-serif;font-size:24px;line-height:1.2;text-wrap:pretty">“{{ r.q }}”</p>
+          <div style="margin-top:auto;display:flex;justify-content:space-between;gap:12px;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase"><span>{{ r.who }}</span><span style="color:{{ r.srcC }}">{{ r.src }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<footer style="padding:clamp(88px,11vw,170px) 0 0">
+  <div style="position:relative;overflow:hidden;min-height:620px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:#004F59">
+    <img loading="lazy" decoding="async" src="/assets/img/Carousel-Pic-8.webp" alt="DoughBalls" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,79,89,.15),rgba(0,56,64,.95) 80%)"></div>
+    <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(16px,4vw,40px) 28px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between;align-items:flex-end">
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ nav }}" as="n" hint-placeholder-count="5"><a href="{{ n.href }}" style="padding:9px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.5);color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#C6AA76;border-color:#C6AA76;color:#0b2a2e">{{ n.label }}</a></sc-for></div>
+        <span style="font-family:Yellowtail,cursive;font-size:36px;color:#C6AA76">Tag us @doughballsau</span>
+      </div>
+      <div style="font-family:'Titan One',sans-serif;font-size:clamp(34px,11.4vw,210px);line-height:.85;white-space:nowrap;text-transform:uppercase;text-align:center;color:#f4ede0;text-shadow:6px 6px 0 #C6AA76;letter-spacing:-.01em">DoughBalls</div>
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(198,170,118,.4);padding-top:18px;font-size:14px;color:#cfe0e2"><span>© 2020 – 2026 DoughBalls, the Pizza Place</span><div style="display:flex;gap:16px"><span>Privacy</span><a href="https://www.instagram.com/doughballsau/" target="_blank" style="color:#cfe0e2">Instagram</a><a href="https://www.facebook.com/DoughballsAU/" target="_blank" style="color:#cfe0e2">Facebook</a></div></div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showReviews&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const REVIEWS = [
+  { q: 'One of the best pizzas we have ever had. The staff were all awesome.', who: 'Glenelg', src: 'Tripadvisor' },
+  { q: 'Our kids absolutely loved the 3-course kiddies meal. Great value for money too.', who: 'Andre M · Glenelg', src: 'Google' },
+  { q: 'The star was the doughballs we ordered for a starter.', who: 'Kathy M · Rundle Place', src: 'Tripadvisor' },
+  { q: 'The gluten free pizza base is AMAZING!', who: 'Glenelg', src: 'Tripadvisor' },
+  { q: 'Staff are excellent, they made my wife a complimentary birthday dessert.', who: 'Glenelg', src: 'Tripadvisor' },
+  { q: 'I enjoyed the dough balls with pistacchio sauce. SO YUM!', who: 'Tien · Rundle Place', src: 'Google' },
+  { q: 'Amazing food, great vibes. Would highly recommend.', who: 'Rundle Place', src: 'Tripadvisor' },
+  { q: 'Definitely recommend taking the kids as ours loved it.', who: 'Rundle Place', src: 'Google' },
+  { q: 'Very friendly staff, tasty food, and lots of gluten free options.', who: 'Glenelg', src: 'Find Me Gluten Free' },
+  { q: 'We couldn\'t ask for a better experience.', who: 'Group of 10 · Glenelg', src: 'Google' },
+];
+const PAL = [['#fff', '#004F59', '#C6AA76'], ['#004F59', '#fff', '#C6AA76'], ['#C6AA76', '#0b2a2e', '#004F59']];
+const ROT = ['-1.5deg', '1deg', '-.5deg', '1.5deg', '0deg'];
+const NAV = [['Home', '/'], ['Our story', '/our-story'], ['Menus', '/menus'], ['Catering', '/catering'], ["What's on", '/whats-on'], ['Locations', '/locations']];
+
+class Component extends DCLogic {
+  rowA = React.createRef(); rowB = React.createRef(); x = 0; paused = false;
+  componentDidMount() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) this.paused = this.still = true;
+    const tick = () => {
+      if (!this.paused) this.x += 0.5;
+      const a = this.rowA.current, b = this.rowB.current;
+      if (a) { const h = a.scrollWidth / 2; a.style.transform = `translateX(${-(this.x % h)}px)`; }
+      if (b) { const h = b.scrollWidth / 2; b.style.transform = `translateX(${-h + (this.x % h)}px)`; }
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); }
+  renderVals() {
+    const mk = (list, off) => [...list, ...list].map((r, i) => { const p = PAL[(i + off) % 3]; return { ...r, bg: p[0], fg: p[1], srcC: p[2], rot: ROT[(i + off) % ROT.length] }; });
+    return {
+      showReviews: this.props.showReviews ?? true,
+      rowA: this.rowA, rowB: this.rowB,
+      rowAItems: mk(REVIEWS.slice(0, 5), 0), rowBItems: mk(REVIEWS.slice(5), 1),
+      pause: () => { this.paused = true; }, resume: () => { this.paused = !!this.still; },
+      nav: NAV.map(([label, href]) => ({ label, href })),
+    };
+  }
+}
+</script>
+</body>
+</html>
